@@ -9,7 +9,7 @@ import type { Points as PointsType } from "three";
 export const StarBackground = (props: PointsProps) => {
   const ref = useRef<PointsType | null>(null);
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+    random.inSphere(new Float32Array(0), { radius: 1.9 })
   );
 
   useFrame((_state, delta) => {
@@ -20,7 +20,7 @@ export const StarBackground = (props: PointsProps) => {
   });
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group rotation={[0, 0, Math.PI / 20]}>
       <Points
         ref={ref}
         stride={3}
