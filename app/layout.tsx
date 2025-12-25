@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import dynamic from "next/dynamic";
 import type { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/main/footer";
@@ -7,6 +8,11 @@ import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
+
+const SmokeCursor = dynamic(
+  () => import("@/components/main/smoke-cursor").then((mod) => ({ default: mod.SmokeCursor })),
+  { ssr: false }
+);
 
 import "./globals.css";
 
@@ -27,6 +33,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.className
         )}
       >
+        <SmokeCursor />
         <StarsCanvas />
         <Navbar />
         {children}
