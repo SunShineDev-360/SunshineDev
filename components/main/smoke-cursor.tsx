@@ -14,11 +14,11 @@ export const SmokeCursor = () => {
 
     const config = {
       TEXTURE_DOWNSAMPLE: 1,
-      DENSITY_DISSIPATION: 0.98,
-      VELOCITY_DISSIPATION: 0.99,
+      DENSITY_DISSIPATION: 0.85,
+      VELOCITY_DISSIPATION: 0.85,
       PRESSURE_DISSIPATION: 0.8,
       PRESSURE_ITERATIONS: 25,
-      CURL: 30,
+      CURL: 50,
       SPLAT_RADIUS: 0.005,
     };
 
@@ -667,7 +667,6 @@ export const SmokeCursor = () => {
         width: "100%",
         height: "100%",
         mixBlendMode: "screen",
-        background: "transparent"
       }}
     />
   );

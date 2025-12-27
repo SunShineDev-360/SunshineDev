@@ -362,3 +362,34 @@ export const NAV_LINKS = [
 export const LINKS = {
   sourceCode: "https://github.com/sanidhyy/space-portfolio",
 };
+
+export const WORK_HISTORY = [
+  {
+    period: "2022-2024",
+    role: "Senior Full Stack Developer",
+    company: "Tech Innovations Inc.",
+    description: "Led development of scalable web applications using React and Node.js",
+    skills: ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+  },
+  {
+    period: "2020-2022",
+    role: "Full Stack Developer",
+    company: "Digital Solutions Ltd.",
+    description: "Built and maintained multiple client projects with modern tech stack",
+    skills: ["Next.js", "Express", "MongoDB", "Docker", "GraphQL"],
+  },
+  {
+    period: "2018-2020",
+    role: "Frontend Developer",
+    company: "Creative Web Agency",
+    description: "Developed responsive and interactive user interfaces",
+    skills: ["React", "Vue.js", "Sass", "Webpack", "Jest"],
+  },
+  {
+    period: "2016-2018",
+    role: "Junior Developer",
+    company: "StartupHub",
+    description: "Started career in web development, learned modern frameworks",
+    skills: ["JavaScript", "HTML5", "CSS3", "jQuery", "Bootstrap"],
+  },
+] as const;
