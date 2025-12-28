@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
+import { urlFor } from "@/lib/sanity/image";
 
 type SkillDataProviderProps = {
   src: string;
@@ -10,6 +11,10 @@ type SkillDataProviderProps = {
   width: number;
   height: number;
   index: number;
+  imageAsset?: {
+    asset?: { url?: string };
+    alt?: string;
+  };
 };
 
 export const SkillDataProvider = ({
@@ -18,6 +23,7 @@ export const SkillDataProvider = ({
   width,
   height,
   index,
+  imageAsset,
 }: SkillDataProviderProps) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -30,6 +36,11 @@ export const SkillDataProvider = ({
 
   const animationDelay = 0.1;
 
+  // Use Sanity image if available, otherwise fallback to local path
+  const imageUrl = imageAsset?.asset?.url
+    ? urlFor(imageAsset).width(width).height(height).url()
+    : `/skills/${src}`;
+
   return (
     <motion.div
       ref={ref}
@@ -39,7 +50,7 @@ export const SkillDataProvider = ({
       custom={index}
       transition={{ delay: index * animationDelay }}
     >
-      <Image src={`/skills/${src}`} width={width} height={height} alt={name} />
+      <Image src={imageUrl} width={width} height={height} alt={name} />
     </motion.div>
   );
 };

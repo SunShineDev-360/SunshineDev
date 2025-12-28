@@ -3,11 +3,28 @@
 import { motion } from "framer-motion";
 import { WORK_HISTORY } from "@/constants";
 
-export const WorkHistory = () => {
+type WorkHistoryProps = {
+  workHistoryData?: {
+    title?: string;
+    workItems?: Array<{
+      _id: string;
+      period: string;
+      role: string;
+      company: string;
+      description: string;
+      skills?: string[];
+    }>;
+  } | null;
+};
+
+export const WorkHistory = ({ workHistoryData }: WorkHistoryProps) => {
+  const sectionTitle = workHistoryData?.title || "Work History";
+  const workItems = workHistoryData?.workItems || WORK_HISTORY;
+
   return (
     <section
       id="work-history"
-      className="relative flex flex-col items-center justify-center min-h-screen w-full py-20 px-4 sm:px-8 md:px-20"
+      className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-8 md:px-20"
     >
       {/* Section Title */}
       <motion.div
@@ -18,7 +35,7 @@ export const WorkHistory = () => {
         className="mb-16"
       >
         <h2 className="text-[40px] sm:text-[50px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-center">
-          Work History
+          {sectionTitle}
         </h2>
       </motion.div>
 
@@ -41,7 +58,7 @@ export const WorkHistory = () => {
 
         {/* Timeline Items */}
         <div className="relative space-y-12 md:space-y-16">
-          {WORK_HISTORY.map((item, index) => {
+          {workItems.map((item, index) => {
             const isEven = index % 2 === 0;
             const isLeft = isEven;
 
@@ -107,7 +124,7 @@ export const WorkHistory = () => {
                     />
 
                     {/* Main Card */}
-                    <div className="relative p-6 md:p-8 rounded-2xl bg-gradient-to-br from-purple-900/60 via-blue-900/50 to-cyan-900/60 backdrop-blur-xl border-2 border-purple-500/30 shadow-2xl overflow-hidden">
+                    <div className="relative p-6 md:p-8 rounded-2xl bg-transparent backdrop-blur-xl border-2 border-purple-500/30 shadow-2xl overflow-hidden">
                       {/* Animated Background Gradient */}
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-cyan-500/20 to-purple-600/20"
@@ -181,7 +198,7 @@ export const WorkHistory = () => {
                           transition={{ duration: 0.6, delay: index * 0.2 + 0.6 }}
                           className="flex flex-wrap gap-2"
                         >
-                          {item.skills.map((skill, skillIndex) => (
+                          {(item.skills || []).map((skill, skillIndex) => (
                             <motion.span
                               key={skill}
                               initial={{ opacity: 0, scale: 0 }}
@@ -205,24 +222,6 @@ export const WorkHistory = () => {
                           ))}
                         </motion.div>
                       </div>
-
-                      {/* Shine Effect on Hover */}
-                      <motion.div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl overflow-hidden pointer-events-none"
-                        style={{
-                          background: "linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)",
-                          backgroundSize: "200% 100%",
-                        }}
-                        animate={{
-                          backgroundPosition: ["200% 0", "-200% 0"],
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          repeatDelay: 2,
-                          ease: "easeInOut",
-                        }}
-                      />
                     </div>
                   </div>
                 </motion.div>

@@ -15,7 +15,7 @@ export const SmokeCursor = () => {
     const config = {
       TEXTURE_DOWNSAMPLE: 1,
       DENSITY_DISSIPATION: 0.85,
-      VELOCITY_DISSIPATION: 0.85,
+      VELOCITY_DISSIPATION: 0.9,
       PRESSURE_DISSIPATION: 0.8,
       PRESSURE_ITERATIONS: 25,
       CURL: 50,

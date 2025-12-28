@@ -1,6 +1,20 @@
 import { HeroContent } from "@/components/sub/hero-content";
 
-export const Hero = () => {
+type HeroProps = {
+  heroData?: {
+    badgeText?: string;
+    mainHeading?: string;
+    highlightedText?: string;
+    description?: string;
+    buttonText?: string;
+    avatar?: {
+      asset?: { url?: string };
+      alt?: string;
+    };
+  } | null;
+};
+
+export const Hero = ({ heroData }: HeroProps) => {
   return (
     <div className="relative flex flex-col h-full w-full">
       <video
@@ -12,7 +26,7 @@ export const Hero = () => {
         <source src="/videos/blackhole.webm" type="video/webm" />
       </video>
 
-      <HeroContent />
+      <HeroContent heroData={heroData} />
     </div>
   );
 };
