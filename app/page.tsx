@@ -3,6 +3,7 @@ import { Projects } from "@/components/main/projects";
 import { Skills } from "@/components/main/skills";
 import { WorkHistory } from "@/components/main/work-history";
 import { sanityFetch } from "@/lib/sanity/fetch";
+import { HOME_PAGE_QUERY } from "@/lib/sanity/queries/homePage";
 import { SITE_SETTINGS_QUERY } from "@/lib/sanity/queries/siteSettings";
 import { NAVBAR_QUERY } from "@/lib/sanity/queries/navbar";
 import { HERO_QUERY } from "@/lib/sanity/queries/hero";
@@ -12,7 +13,38 @@ import { PROJECTS_SECTION_QUERY } from "@/lib/sanity/queries/projects";
 import { FOOTER_QUERY } from "@/lib/sanity/queries/footer";
 
 export default async function Home() {
-  // Try to fetch from Sanity, fallback to null if not available
+  // Try to fetch homePage first (new consolidated structure)
+  let homePageData: any = null;
+  try {
+    const result = await sanityFetch<any>({
+      query: HOME_PAGE_QUERY,
+      revalidate: 60,
+    });
+    // Check if result exists and has content (not just null/undefined)
+    if (result && result._id) {
+      homePageData = result;
+    }
+  } catch (error) {
+    // Silently fall through to fallback structure
+    // This is expected if homePage document doesn't exist yet
+    console.log('HomePage data not available, trying fallback structure');
+  }
+
+  // If homePage exists and has data, use it; otherwise fallback to individual sections
+  if (homePageData && homePageData._id) {
+    return (
+      <main className="h-full w-full">
+        <div className="flex flex-col">
+          <Hero heroData={homePageData?.hero} />
+          <Skills skillsData={homePageData?.skillsSection} />
+          <WorkHistory workHistoryData={homePageData?.workHistorySection} />
+          <Projects projectsData={homePageData?.projectsSection} />
+        </div>
+      </main>
+    );
+  }
+
+  // Fallback to old structure (siteSettings or individual queries)
   let siteData: any = null;
   try {
     siteData = await sanityFetch<any>({

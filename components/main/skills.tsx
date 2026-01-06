@@ -15,7 +15,8 @@ type SkillsProps = {
     mainHeading?: string;
     subHeading?: string;
     skills?: Array<{
-      _id: string;
+      _id?: string;
+      _key?: string;
       name: string;
       image?: {
         asset?: { url?: string };
@@ -122,7 +123,7 @@ export const Skills = ({ skillsData }: SkillsProps) => {
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
               {generalSkills.map((skill, i) => (
                 <SkillDataProvider
-                  key={skill._id}
+                  key={skill._id || skill._key || i}
                   src={skill.image?.asset?.url ? '' : ''}
                   name={skill.name}
                   width={skill.width}
@@ -137,7 +138,7 @@ export const Skills = ({ skillsData }: SkillsProps) => {
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
               {frontendSkills.map((skill, i) => (
                 <SkillDataProvider
-                  key={skill._id}
+                  key={skill._id || skill._key || i}
                   src=""
                   name={skill.name}
                   width={skill.width}
@@ -152,7 +153,7 @@ export const Skills = ({ skillsData }: SkillsProps) => {
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
               {backendSkills.map((skill, i) => (
                 <SkillDataProvider
-                  key={skill._id}
+                  key={skill._id || skill._key || i}
                   src=""
                   name={skill.name}
                   width={skill.width}
@@ -167,7 +168,7 @@ export const Skills = ({ skillsData }: SkillsProps) => {
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
               {fullstackSkills.map((skill, i) => (
                 <SkillDataProvider
-                  key={skill._id}
+                  key={skill._id || skill._key || i}
                   src=""
                   name={skill.name}
                   width={skill.width}
@@ -182,7 +183,7 @@ export const Skills = ({ skillsData }: SkillsProps) => {
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
               {otherSkills.map((skill, i) => (
                 <SkillDataProvider
-                  key={skill._id}
+                  key={skill._id || skill._key || i}
                   src=""
                   name={skill.name}
                   width={skill.width}
