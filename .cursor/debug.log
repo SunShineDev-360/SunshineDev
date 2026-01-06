@@ -1,0 +1,45 @@
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683375999,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767683381068},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767683381081},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/chunk-error-handler.tsx:7","message":"ChunkErrorHandler mounted","data":{"timestamp":1767683389980,"userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"},"sessionId":"debug-session","runId":"run1","hypothesisId":"C"}
+{"location":"app/chunk-error-handler.tsx:7","message":"ChunkErrorHandler mounted","data":{"timestamp":1767683389998,"userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"},"sessionId":"debug-session","runId":"run1","hypothesisId":"C"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683438988,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767683439140},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767683439149},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683439860,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683446993,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683447032,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683447080,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683447104,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683447465,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683720994,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683721096,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767683721479},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767683721482},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683721518,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767683721554,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767683721797},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767683721821},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767684541203,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767684541236,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767684541706,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767684541729,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767684544409},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767684544429},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767684544473},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767684544480},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685005050,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685005089,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685005455,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685005478,"projectName":"SunshineDev-Porfolio-Website"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767685006537},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767685006548},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767685006712},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767685006716},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685186179,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:15","message":"SmokeCursor dynamic import start","data":{"timestamp":1767685186391},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:18","message":"SmokeCursor dynamic import success","data":{"timestamp":1767685186404},"sessionId":"debug-session","runId":"run1","hypothesisId":"E"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685187775,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/layout.tsx:27","message":"RootLayout entry","data":{"timestamp":1767685193154,"projectName":"space-portfolio"},"sessionId":"debug-session","runId":"run1","hypothesisId":"A"}
+{"location":"app/chunk-error-handler.tsx:7","message":"ChunkErrorHandler mounted","data":{"timestamp":1767685197243,"userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"},"sessionId":"debug-session","runId":"run1","hypothesisId":"C"}
+{"location":"app/chunk-error-handler.tsx:7","message":"ChunkErrorHandler mounted","data":{"timestamp":1767685197248,"userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"},"sessionId":"debug-session","runId":"run1","hypothesisId":"C"}

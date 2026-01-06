@@ -8,7 +8,7 @@ export const siteConfig: Metadata = {
     "nextjs",
     "vercel",
     "react",
-    "space-portfolio",
+    "SunshineDev-Porfolio-Website",
     "portfolio",
     "react-icons",
     "cn",

@@ -1,5 +1,5 @@
 {
-  "name": "space-portfolio",
+  "name": "SunshineDev-Porfolio-Website",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "author": {
     "name": "SunshineDev",
     "email": "av0214849@gmail.com",
-    "url": "https://github.com/sanidhyy"
+    "url": "https://github.com/av0214849-dev"
   },
   "description": "Welcome to my full stack Next.js 14 space portfolio.",
   "keywords": [
@@ -20,7 +20,7 @@
     "nextjs",
     "vercel",
     "react",
-    "space-portfolio",
+    "SunshineDev-Porfolio-Website",
     "portfolio",
     "react-icons",
     "cn",
@@ -49,11 +49,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sanidhyy/space-portfolioit"
+    "url": "https://github.com/av0214849-dev/SunshineDev-Porfolio-Websiteit"
   },
-  "homepage": "https://github.com/sanidhyy/space-portfolio#readme",
+  "homepage": "https://github.com/av0214849-dev/SunshineDev-Porfolio-Website#readme",
   "bugs": {
-    "url": "https://github.com/sanidhyy/space-portfolio/issues",
+    "url": "https://github.com/av0214849-dev/SunshineDev-Porfolio-Website/issues",
     "email": "av0214849@gmail.com"
   },
   "funding": [
@@ -78,7 +78,7 @@
     "framer-motion": "^12.23.26",
     "groq": "^5.1.0",
     "next": "^14.2.35",
-    "next-sanity": "^8.1.3",
+    "next-sanity": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.0.1",
@@ -89,14 +89,19 @@
     "three": "^0.160.0"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.11.0",
+    "@codemirror/lint": "^6.0.0",
+    "@codemirror/theme-one-dark": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.160.0",
     "autoprefixer": "^10.0.1",
+    "codemirror": "^6.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "react-is": "^18.0.0",
     "sanity": "^3.99.0",
     "tailwindcss": "^3.3.0",
     "tsx": "^4.21.0",
