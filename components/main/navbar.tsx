@@ -7,6 +7,16 @@ import { LINKS, NAV_LINKS, SOCIALS } from "@/constants";
 import { urlFor } from "@/lib/sanity/image";
 import { getIcon } from "@/lib/sanity/iconMap";
 
+type SocialLink = {
+  name: string;
+  iconName?: string;
+  icon?: {
+    asset?: { url?: string };
+    alt?: string;
+  };
+  link: string;
+};
+
 type NavbarProps = {
   navbarData?: {
     name?: string;
@@ -15,15 +25,7 @@ type NavbarProps = {
       alt?: string;
     };
     navLinks?: Array<{ title: string; link: string }>;
-    socialLinks?: Array<{ 
-      name: string; 
-      iconName?: string; 
-      icon?: {
-        asset?: { url?: string };
-        alt?: string;
-      };
-      link: string 
-    }>;
+    socialLinks?: Array<SocialLink>;
     sourceCodeLink?: string;
   } | null;
 };
@@ -40,7 +42,7 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
   const navLinks = navbarData?.navLinks || NAV_LINKS;
   // Map SOCIALS to the format expected by the component
   const socialLinksData = navbarData?.socialLinks;
-  const socialLinks = socialLinksData || SOCIALS.map(s => {
+  const socialLinks: SocialLink[] = socialLinksData || SOCIALS.map((s): SocialLink => {
     // Map component name to icon name string
     const iconComponentName = s.icon.name || '';
     // Simple mapping - component names match icon names in most cases
@@ -48,6 +50,7 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
     return { 
       name: s.name, 
       iconName, 
+      icon: undefined, // Explicitly set icon to undefined for fallback format
       link: s.link 
     };
   });
@@ -100,9 +103,10 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
 
         {/* Social Icons (Web) */}
         <div className="hidden md:flex flex-row gap-5">
-          {socialLinks.map(({ link, name, iconName, icon }) => {
+          {socialLinks.map((socialLink) => {
+            const { link, name, iconName, icon } = socialLink;
             // Prioritize uploaded icon image if available
-            if (icon?.asset?.url) {
+            if (icon && icon.asset?.url) {
               const iconUrl = urlFor(icon).width(24).height(24).url();
               return (
                 <Link
@@ -181,9 +185,10 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
 
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mt-6">
-            {socialLinks.map(({ link, name, iconName, icon }) => {
+            {socialLinks.map((socialLink) => {
+              const { link, name, iconName, icon } = socialLink;
               // Prioritize uploaded icon image if available
-              if (icon?.asset?.url) {
+              if (icon && icon.asset?.url) {
                 const iconUrl = urlFor(icon).width(32).height(32).url();
                 return (
                   <Link
