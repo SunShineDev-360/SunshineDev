@@ -22,6 +22,17 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
       socialLinks[] {
         name,
         iconName,
+        icon {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
+        },
         link
       },
       sourceCodeLink
@@ -109,6 +120,17 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
         links[] {
           name,
           iconName,
+          icon {
+            asset->{
+              _id,
+              url,
+              metadata {
+                lqip,
+                dimensions
+              }
+            },
+            alt
+          },
           link
         }
       },

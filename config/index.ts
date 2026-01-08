@@ -35,7 +35,7 @@ export const siteConfig: Metadata = {
     "css",
   ] as Array<string>,
   authors: {
-    name: "av0214849-dev",
-    url: "https://github.com/av0214849-dev",
+    name: "SunShineDev-360",
+    url: "https://github.com/SunShineDev-360",
   },
 } as const;

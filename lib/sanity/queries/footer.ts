@@ -6,6 +6,17 @@ export const FOOTER_QUERY = /* groq */ `
       links[] {
         name,
         iconName,
+        icon {
+          asset->{
+            _id,
+            url,
+            metadata {
+              lqip,
+              dimensions
+            }
+          },
+          alt
+        },
         link
       }
     },

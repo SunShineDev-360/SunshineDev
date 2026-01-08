@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { FOOTER_DATA } from "@/constants";
 import { getIcon } from "@/lib/sanity/iconMap";
+import { urlFor } from "@/lib/sanity/image";
 
 type FooterProps = {
   footerData?: {
@@ -10,6 +12,10 @@ type FooterProps = {
       links?: Array<{
         name: string;
         iconName?: string;
+        icon?: {
+          asset?: { url?: string };
+          alt?: string;
+        };
         link: string;
       }>;
     }>;
@@ -38,7 +44,31 @@ export const Footer = ({ footerData }: FooterProps) => {
               className="min-w-[200px] h-auto flex flex-col items-center justify-start"
             >
               <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.links?.map(({ iconName, name, link }) => {
+              {column.links?.map(({ iconName, icon, name, link }) => {
+                // Prioritize uploaded icon image if available
+                if (icon?.asset?.url) {
+                  const iconUrl = urlFor(icon).width(20).height(20).url();
+                  return (
+                    <Link
+                      key={`${column.title}-${name}`}
+                      href={link}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="flex flex-row items-center my-[15px]"
+                    >
+                      <Image
+                        src={iconUrl}
+                        alt={icon.alt || name}
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 object-contain"
+                      />
+                      <span className="text-[15px] ml-[6px]">{name}</span>
+                    </Link>
+                  );
+                }
+                
+                // Fallback to React icon component
                 const Icon = iconName ? getIcon(iconName) : null;
                 // Fallback to original FOOTER_DATA icons
                 const fallbackIcon = !Icon && !footerData 

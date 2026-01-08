@@ -15,7 +15,15 @@ type NavbarProps = {
       alt?: string;
     };
     navLinks?: Array<{ title: string; link: string }>;
-    socialLinks?: Array<{ name: string; iconName?: string; link: string }>;
+    socialLinks?: Array<{ 
+      name: string; 
+      iconName?: string; 
+      icon?: {
+        asset?: { url?: string };
+        alt?: string;
+      };
+      link: string 
+    }>;
     sourceCodeLink?: string;
   } | null;
 };
@@ -92,7 +100,30 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
 
         {/* Social Icons (Web) */}
         <div className="hidden md:flex flex-row gap-5">
-          {socialLinks.map(({ link, name, iconName }) => {
+          {socialLinks.map(({ link, name, iconName, icon }) => {
+            // Prioritize uploaded icon image if available
+            if (icon?.asset?.url) {
+              const iconUrl = urlFor(icon).width(24).height(24).url();
+              return (
+                <Link
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  key={name}
+                  className="flex items-center justify-center"
+                >
+                  <Image
+                    src={iconUrl}
+                    alt={icon.alt || name}
+                    width={24}
+                    height={24}
+                    className="h-6 w-6 object-contain"
+                  />
+                </Link>
+              );
+            }
+            
+            // Fallback to React icon component
             const Icon = iconName ? getIcon(iconName) : null;
             // Fallback to original SOCIALS if icon not found
             const fallbackIcon = !Icon && !socialLinksData ? SOCIALS.find(s => s.name === name)?.icon : null;
@@ -150,7 +181,30 @@ export const Navbar = ({ navbarData }: NavbarProps) => {
 
           {/* Social Icons */}
           <div className="flex justify-center gap-6 mt-6">
-            {socialLinks.map(({ link, name, iconName }) => {
+            {socialLinks.map(({ link, name, iconName, icon }) => {
+              // Prioritize uploaded icon image if available
+              if (icon?.asset?.url) {
+                const iconUrl = urlFor(icon).width(32).height(32).url();
+                return (
+                  <Link
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    key={name}
+                    className="flex items-center justify-center"
+                  >
+                    <Image
+                      src={iconUrl}
+                      alt={icon.alt || name}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 object-contain"
+                    />
+                  </Link>
+                );
+              }
+              
+              // Fallback to React icon component
               const Icon = iconName ? getIcon(iconName) : null;
               const fallbackIcon = !Icon && !socialLinksData ? SOCIALS.find(s => s.name === name)?.icon : null;
               const FinalIcon = Icon || fallbackIcon;

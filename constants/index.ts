@@ -360,7 +360,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const LINKS = {
-  sourceCode: "https://github.com/av0214849-dev/SunshineDev-Porfolio-Website",
+  sourceCode: "https://github.com/SunShineDev-360/SunshineDev-Porfolio-Website",
 };
 
 export const WORK_HISTORY = [

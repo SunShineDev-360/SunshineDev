@@ -20,6 +20,17 @@ export const NAVBAR_QUERY = /* groq */ `
     socialLinks[] {
       name,
       iconName,
+      icon {
+        asset->{
+          _id,
+          url,
+          metadata {
+            lqip,
+            dimensions
+          }
+        },
+        alt
+      },
       link
     },
     sourceCodeLink
