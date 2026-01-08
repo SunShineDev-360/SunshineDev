@@ -14,6 +14,8 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   webpack: (config, { isServer, dev }) => {
     // Fix for WebGL context issues
