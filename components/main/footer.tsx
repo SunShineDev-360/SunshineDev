@@ -23,12 +23,26 @@ type FooterProps = {
   } | null;
 };
 
+type FooterColumn = {
+  title: string;
+  links?: Array<{
+    name: string;
+    iconName?: string | null;
+    icon?: {
+      asset?: { url?: string };
+      alt?: string;
+    };
+    link: string;
+  }>;
+};
+
 export const Footer = ({ footerData }: FooterProps) => {
-  const columns = footerData?.columns || FOOTER_DATA.map(col => ({
+  const columns: FooterColumn[] = footerData?.columns || FOOTER_DATA.map((col): FooterColumn => ({
     title: col.title,
     links: col.data.map(item => ({
       name: item.name,
       iconName: item.icon?.name || null,
+      icon: undefined,
       link: item.link,
     })),
   }));
@@ -44,9 +58,10 @@ export const Footer = ({ footerData }: FooterProps) => {
               className="min-w-[200px] h-auto flex flex-col items-center justify-start"
             >
               <h3 className="font-bold text-[16px]">{column.title}</h3>
-              {column.links?.map(({ iconName, icon, name, link }) => {
+              {column.links?.map((linkItem) => {
+                const { iconName, icon, name, link } = linkItem;
                 // Prioritize uploaded icon image if available
-                if (icon?.asset?.url) {
+                if (icon && icon.asset?.url) {
                   const iconUrl = urlFor(icon).width(20).height(20).url();
                   return (
                     <Link
