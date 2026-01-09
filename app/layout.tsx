@@ -14,23 +14,13 @@ import { NAVBAR_QUERY } from "@/lib/sanity/queries/navbar";
 import { FOOTER_QUERY } from "@/lib/sanity/queries/footer";
 
 const SmokeCursor = dynamic(
-  () => {
-    // #region agent log
-    fetch('http://127.0.0.1:7244/ingest/589d0932-3351-42d0-9342-063b2eb428ce',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'app/layout.tsx:15',message:'SmokeCursor dynamic import start',data:{timestamp:Date.now()},sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
-    return import("@/components/main/smoke-cursor").then((mod) => {
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/589d0932-3351-42d0-9342-063b2eb428ce',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'app/layout.tsx:18',message:'SmokeCursor dynamic import success',data:{timestamp:Date.now()},sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
-      return { default: mod.SmokeCursor };
-    }).catch((err) => {
-      // #region agent log
-      fetch('http://127.0.0.1:7244/ingest/589d0932-3351-42d0-9342-063b2eb428ce',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'app/layout.tsx:22',message:'SmokeCursor dynamic import error',data:{error:err?.message,timestamp:Date.now()},sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-      // #endregion
-      throw err;
-    });
-  },
-  { ssr: false }
+  () => import("@/components/main/smoke-cursor").then((mod) => ({
+    default: mod.SmokeCursor,
+  })),
+  { 
+    ssr: false,
+    loading: () => null, // Don't show anything while loading
+  }
 );
 
 import "./globals.css";
@@ -42,28 +32,33 @@ export const viewport: Viewport = {
 export const metadata: Metadata = siteConfig;
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  // #region agent log
-  fetch('http://127.0.0.1:7244/ingest/589d0932-3351-42d0-9342-063b2eb428ce',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'app/layout.tsx:27',message:'RootLayout entry',data:{timestamp:Date.now(),projectName:process.env.npm_package_name},sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-  // #endregion
-  // Fetch navbar and footer data
-  const [navbarData, footerData] = await Promise.all([
-    sanityFetch<{
-      _id: string;
-      name?: string;
-      logo?: { asset?: { url?: string }; alt?: string };
-      navLinks?: Array<{ title: string; link: string }>;
-      socialLinks?: Array<{ name: string; iconName?: string; link: string }>;
-      sourceCodeLink?: string;
-    }>({ query: NAVBAR_QUERY, revalidate: 60 }).catch(() => null),
-    sanityFetch<{
-      _id: string;
-      columns?: Array<{
-        title: string;
-        links?: Array<{ name: string; iconName?: string; link: string }>;
-      }>;
-      copyrightText?: string;
-    }>({ query: FOOTER_QUERY, revalidate: 60 }).catch(() => null),
-  ]);
+  // Fetch navbar and footer data with error handling
+  let navbarData = null;
+  let footerData = null;
+  
+  try {
+    [navbarData, footerData] = await Promise.all([
+      sanityFetch<{
+        _id: string;
+        name?: string;
+        logo?: { asset?: { url?: string }; alt?: string };
+        navLinks?: Array<{ title: string; link: string }>;
+        socialLinks?: Array<{ name: string; iconName?: string; link: string }>;
+        sourceCodeLink?: string;
+      }>({ query: NAVBAR_QUERY, revalidate: 60 }).catch(() => null),
+      sanityFetch<{
+        _id: string;
+        columns?: Array<{
+          title: string;
+          links?: Array<{ name: string; iconName?: string; link: string }>;
+        }>;
+        copyrightText?: string;
+      }>({ query: FOOTER_QUERY, revalidate: 60 }).catch(() => null),
+    ]);
+  } catch (error) {
+    // Silently handle errors - components will use fallback constants
+    console.error('Error fetching navbar/footer data:', error);
+  }
 
   return (
     <html lang="en">

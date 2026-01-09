@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ensure consistent build output
-  generateBuildId: async () => {
-    // Use a consistent build ID to prevent chunk mismatches
-    return 'build-' + Date.now();
-  },
+  // Let Next.js handle build ID generation automatically for stable builds
+  // Removed custom generateBuildId to prevent build inconsistencies on Vercel
   images: {
     remotePatterns: [
       {
