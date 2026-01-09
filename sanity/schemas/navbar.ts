@@ -65,11 +65,26 @@ export default defineType({
               validation: (Rule: any) => Rule.required(),
             },
             {
+              name: 'icon',
+              type: 'image',
+              title: 'Icon Image',
+              description: 'Upload a custom icon image (SVG, PNG, etc.)',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative Text',
+                },
+              ],
+            },
+            {
               name: 'iconName',
               type: 'string',
               title: 'Icon Name',
-              description: 'React icon component name (e.g., RxInstagramLogo)',
-              validation: (Rule: any) => Rule.required(),
+              description: 'React icon component name (e.g., RxInstagramLogo). Leave empty if using uploaded icon image.',
             },
             {
               name: 'link',

@@ -1,5 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Let Next.js handle build ID generation automatically for stable builds
+  // Removed custom generateBuildId to prevent build inconsistencies on Vercel
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
   webpack: (config, { isServer, dev }) => {
     // Fix for WebGL context issues
     if (!isServer) {
@@ -11,11 +25,15 @@ const nextConfig = {
     
     // Fix webpack cache issues in development
     if (dev) {
-      config.cache = {
-        type: 'filesystem',
-        buildDependencies: {
-          config: [__filename],
-        },
+      // Disable webpack cache to prevent stale chunk references
+      config.cache = false;
+      
+      // Ensure consistent chunk naming
+      config.output = {
+        ...config.output,
+        chunkFilename: isServer
+          ? 'server/chunks/[name].js'
+          : 'static/chunks/[name]-[contenthash].js',
       };
     }
     
@@ -25,6 +43,11 @@ const nextConfig = {
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
+  },
+  // Experimental: Fix chunk loading in development
+  experimental: {
+    // Ensure consistent chunk loading
+    optimizePackageImports: [],
   },
 }
 

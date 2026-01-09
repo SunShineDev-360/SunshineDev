@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from 'sanity'
 
 import footer from './schemas/footer'
 import hero from './schemas/hero'
+import homePage from './schemas/homePage'
 import navbar from './schemas/navbar'
 import project from './schemas/project'
 import projectsSection from './schemas/projectsSection'
@@ -15,6 +16,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     navbar,
     hero,
+    homePage,
     skill,
     skillsSection,
     workHistory,

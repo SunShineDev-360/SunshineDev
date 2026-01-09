@@ -50,7 +50,12 @@ export const SkillDataProvider = ({
       custom={index}
       transition={{ delay: index * animationDelay }}
     >
-      <Image src={imageUrl} width={width} height={height} alt={name} />
+      <Image 
+        src={imageUrl} 
+        width={width} 
+        height={height} 
+        alt={name}
+      />
     </motion.div>
   );
 };

@@ -45,7 +45,7 @@ export const Projects = ({ projectsData }: ProjectsProps) => {
           
           return (
             <ProjectCard
-              key={(project as any)._id || project.title}
+              key={(project as any)._id || (project as any)._key || project.title}
               src={imageUrl}
               title={project.title}
               description={project.description}
