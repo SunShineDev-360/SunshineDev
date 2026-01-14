@@ -135,7 +135,7 @@ export const Footer = ({ footerData }: FooterProps) => {
               </div>
             )}
             {/* Left side: Link columns stacked vertically */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 mt-16">
               {columns.map((column) => (
                 <div
                   key={column.title}
