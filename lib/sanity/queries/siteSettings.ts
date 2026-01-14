@@ -119,6 +119,7 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
         title,
         links[] {
           name,
+          type,
           iconName,
           icon {
             asset->{
@@ -133,6 +134,14 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
           },
           link
         }
+      },
+      contactForm {
+        showContactForm,
+        title,
+        recipientEmail,
+        budgetOptions,
+        submitButtonText,
+        responseTimeText
       },
       copyrightText
     }

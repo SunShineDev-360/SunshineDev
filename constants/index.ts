@@ -6,6 +6,7 @@ import {
   RxTwitterLogo,
   RxLinkedinLogo,
 } from "react-icons/rx";
+import { MdEmail } from "react-icons/md";
 
 export const SKILL_DATA = [
   {

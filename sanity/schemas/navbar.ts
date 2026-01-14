@@ -88,9 +88,29 @@ export default defineType({
             },
             {
               name: 'link',
-              type: 'url',
+              type: 'string',
               title: 'Link',
-              validation: (Rule: any) => Rule.required(),
+              description: 'URL (e.g., https://example.com) or email link (e.g., mailto:email@example.com)',
+              validation: (Rule: any) =>
+                Rule.required().custom((value: string) => {
+                  if (!value) return true; // Required validation handles empty
+                  // Check if it's a mailto: link
+                  if (value.startsWith('mailto:')) {
+                    const email = value.replace('mailto:', '');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                      return 'Invalid email format. Use: mailto:email@example.com';
+                    }
+                    return true;
+                  }
+                  // Otherwise validate as URL
+                  try {
+                    new URL(value);
+                    return true;
+                  } catch {
+                    return 'Invalid URL format. Use: https://example.com or mailto:email@example.com';
+                  }
+                }),
             },
           ],
         },
