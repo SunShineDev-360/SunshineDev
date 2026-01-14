@@ -5,6 +5,7 @@ export const FOOTER_QUERY = /* groq */ `
       title,
       links[] {
         name,
+        type,
         iconName,
         icon {
           asset->{
@@ -20,7 +21,14 @@ export const FOOTER_QUERY = /* groq */ `
         link
       }
     },
+    contactForm {
+      showContactForm,
+      title,
+      recipientEmail,
+      budgetOptions,
+      submitButtonText,
+      responseTimeText
+    },
     copyrightText
   }
 `
-

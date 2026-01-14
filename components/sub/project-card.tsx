@@ -53,10 +53,10 @@ export const ProjectCard = ({
       transition={{ duration: 0.5, delay: index * 0.2 }}
       className="w-full"
     >
-      <Link
-        href={link}
-        target="_blank"
-        rel="noreferrer noopener"
+    <Link
+      href={link}
+      target="_blank"
+      rel="noreferrer noopener"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="block"
@@ -91,14 +91,14 @@ export const ProjectCard = ({
               animate={{ scale: isHovered ? 1.1 : 1 }}
               transition={{ duration: 0.4 }}
               className="relative h-[250px] sm:h-[300px] md:h-[350px]"
-            >
-              <Image
-                src={src}
-                alt={title}
-                width={1000}
-                height={1000}
+    >
+      <Image
+        src={src}
+        alt={title}
+        width={1000}
+        height={1000}
                 className="w-full h-full object-cover transition-transform duration-500"
-              />
+      />
               {/* Gradient overlay for better text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
             </motion.div>
@@ -149,7 +149,7 @@ export const ProjectCard = ({
                 />
               </motion.svg>
             </motion.div>
-          </div>
+      </div>
 
           {/* Animated border glow */}
           <motion.div
@@ -163,7 +163,7 @@ export const ProjectCard = ({
             className={`absolute inset-0 rounded-xl border-2 ${borderClass} pointer-events-none`}
           />
         </motion.div>
-      </Link>
+    </Link>
     </motion.div>
   );
 };

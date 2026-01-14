@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import type { PropsWithChildren } from "react";
+import { Toaster } from "sonner";
 
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
@@ -106,6 +107,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <ChunkErrorHandler />
         <SmokeCursor />
         <StarsCanvas />
+        <Toaster position="bottom-center" />
         <Navbar navbarData={navbarData} />
         {children}
         <Footer footerData={footerData} />
