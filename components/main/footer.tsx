@@ -141,7 +141,7 @@ export const Footer = ({ footerData }: FooterProps) => {
                   key={column.title}
                   className="flex flex-col"
                 >
-                  <h3 className="font-bold text-[30px] text-white mb-4">
+                  <h3 className="font-bold text-[24px] text-white mb-4">
                     {column.title}
                   </h3>
                   <div className="flex flex-col gap-2">

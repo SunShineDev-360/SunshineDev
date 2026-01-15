@@ -77,6 +77,14 @@ ${trimmedMessage}
     // Ensure ReplyTo has both email and name (name fallback to email if empty)
     const replyToName = trimmedName || trimmedEmail.split('@')[0] || 'Contact Form User';
     
+    // Debug logging to verify values
+    console.log('Sending email with ReplyTo:', {
+      email: trimmedEmail,
+      name: replyToName,
+      emailLength: trimmedEmail.length,
+      nameLength: replyToName.length,
+    });
+    
     const sendLayerResponse = await fetch('https://console.sendlayer.com/api/v1/email', {
       method: 'POST',
       headers: {
@@ -98,10 +106,12 @@ ${trimmedMessage}
         ContentType: 'HTML',
         HTMLContent: emailHtml,
         PlainContent: emailText,
-        ReplyTo: {
-          email: trimmedEmail,
-          name: replyToName,
-        },
+        ReplyTo: [
+          {
+            email: trimmedEmail,
+            name: replyToName,
+          },
+        ],
       }),
     });
 
