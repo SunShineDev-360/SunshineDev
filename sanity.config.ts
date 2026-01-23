@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...tool]]/page.tsx` route
+ * This configuration is used to for the Sanity Studio that's mounted on the `/app/studio/[[...tool]]/page.tsx` route
  */
 
 import {visionTool} from '@sanity/vision'
@@ -12,6 +12,7 @@ import {structureTool} from 'sanity/structure'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
 import {structure} from './sanity/structure'
+import {revalidateAction} from './sanity/actions/revalidate'
 
 export default defineConfig({
   basePath: '/studio',
@@ -25,4 +26,24 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  document: {
+    actions: (prev) => {
+      // Find the index of the duplicate action
+      const duplicateIndex = prev.findIndex(
+        (action) => action.action === 'duplicate'
+      );
+      
+      // Insert revalidateAction after duplicate (before delete)
+      if (duplicateIndex !== -1) {
+        return [
+          ...prev.slice(0, duplicateIndex + 1),
+          revalidateAction,
+          ...prev.slice(duplicateIndex + 1),
+        ];
+      }
+      
+      // Fallback: add at the end
+      return [...prev, revalidateAction];
+    },
+  },
 })
