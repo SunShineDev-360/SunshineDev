@@ -1,6 +1,7 @@
 export const SITE_SETTINGS_QUERY = /* groq */ `
   *[_type == "siteSettings"][0] {
     _id,
+    siteTitle,
     navbar-> {
       _id,
       name,

@@ -6,6 +6,14 @@ export default defineType({
   title: 'Site Settings',
   fields: [
     {
+      name: 'siteTitle',
+      type: 'string',
+      title: 'Site Title',
+      description: 'The title displayed in the browser tab',
+      initialValue: 'SunshineDev',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'navbar',
       type: 'reference',
       title: 'Navbar',

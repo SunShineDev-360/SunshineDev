@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { sanityFetch } from "@/lib/sanity/fetch";
 import { NAVBAR_QUERY } from "@/lib/sanity/queries/navbar";
 import { FOOTER_QUERY } from "@/lib/sanity/queries/footer";
+import { SITE_SETTINGS_QUERY } from "@/lib/sanity/queries/siteSettings";
 
 const SmokeCursor = dynamic(
   () => import("@/components/main/smoke-cursor").then((mod) => ({
@@ -30,7 +31,29 @@ export const viewport: Viewport = {
   themeColor: "#030014",
 };
 
-export const metadata: Metadata = siteConfig;
+export async function generateMetadata(): Promise<Metadata> {
+  // Fetch site title from Sanity
+  let siteTitle = "SunshineDev"; // Default fallback
+  
+  try {
+    const siteSettings = await sanityFetch<{ siteTitle?: string }>({
+      query: SITE_SETTINGS_QUERY,
+      revalidate: 60,
+    });
+    
+    if (siteSettings?.siteTitle) {
+      siteTitle = siteSettings.siteTitle;
+    }
+  } catch (error) {
+    // Silently fall back to default
+    console.error('Error fetching site title:', error);
+  }
+
+  return {
+    ...siteConfig,
+    title: siteTitle,
+  };
+}
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   // Fetch navbar and footer data with error handling
