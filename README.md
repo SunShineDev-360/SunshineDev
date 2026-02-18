@@ -30,7 +30,7 @@
 </ul>
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,strapi,sanity,shopify,wordpress,sanity,react,nextjs,redux,html,css,tailwind,materialui">
+    <img src="https://skillicons.dev/icons?i=ts,js,wordpress,react,nextjs,redux,html,css,tailwind,materialui">
   </a>
 </p>
 <ul>
@@ -38,7 +38,7 @@
 </ul>
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=cs,c++,c,figma,framer,webflow,nodejs,flask,fastapi,express,prisma,nestjs,sequelize">
+    <img src="https://skillicons.dev/icons?i=cs,c,webflow,nodejs,flask,fastapi,express,prisma,nestjs,sequelize">
   </a>
 </p>
 <img align="right" alt="GIF" height="260px" src="https://media.giphy.com/media/Ah3zHH7hvsSB2/giphy.gif">
